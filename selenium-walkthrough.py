@@ -1,6 +1,20 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
+
+# removing duplicates from class list
+def remove_duplicates(values):
+    output = []
+    seen = set()
+    for value in values:
+        # If value has not been encountered yet,
+        # ... add it to both list and set.
+        if value not in seen:
+            output.append(value)
+            seen.add(value)
+    return output
+
+
 # Creates a Firefox instance 
 driver = webdriver.Firefox()
 
@@ -31,15 +45,45 @@ for i in classLinks:
 	f.write(i.text)
 	f.write('\n')
 
-# Close file
-f.close()
+# Empty list
+plainTextClassLinks = []
+
+# Save link text to list
+for i in classLinks:
+	plainTextClassLinks.append(i.text)
+
+plainTextClassLinks = remove_duplicates(plainTextClassLinks)
+
+for i in plainTextClassLinks:
+	print i
 
 
 
-print lines
+'''
+#Close file
+#f.close()
+
+# click all the class links 
+for i in classLinks:
+	linkToClick = i
+	linkToClick.click()
+
+
 
 # Close Firefox browser
 driver.quit()
+'''
+
+
+
+
+
+
+
+
+
+
+
 '''
 for i in classLinks:
 	print i.text
@@ -48,10 +92,7 @@ for i in classLinks:
 #print len(classLinks)
 
 '''
-for i in classLinks:
-	#print i.text
-	linkToClick = i
-	linkToClick.click()
+
 '''
 
 # Array to hold course abbreveation(e.g., CS 135)
