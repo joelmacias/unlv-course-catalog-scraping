@@ -52,64 +52,30 @@ plainTextClassLinks = []
 for i in classLinks:
 	plainTextClassLinks.append(i.text)
 
+# function call to remove duplicates items from list
 plainTextClassLinks = remove_duplicates(plainTextClassLinks)
 
-for i in plainTextClassLinks:
-	print i
-
-
-
-'''
-#Close file
-#f.close()
-
-# click all the class links 
+# Click all class links to expose number of credits and pre reqs
 for i in classLinks:
 	linkToClick = i
 	linkToClick.click()
 
+# Empty list
+classDescriptions = []
 
+# starting expath for class descriptions
+# tbody/tr[3] is the first course on the site
+classDescriptionsXpath ='//*[@id="gateway-page"]/body/table/tbody/tr[3]/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr/td/table[2]/tbody/tr[3]/td/table/tbody/tr/td/div[2]'
+
+# number of courses
+numberOfClassLinks = len(classLinks)
+# Save class descriptions
+classDescriptions = driver.find_elements_by_xpath('//*[@id="gateway-page"]/body/table/tbody/tr[3]/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr/td/table[2]/tbody/tr[4]/td/table/tbody/tr/td/div[2]')
+
+#classDescriptions = driver.find_elements_by_xpath('//*[@id="gateway-page"]/body/table/tbody/tr[3]/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr/td/table[2]/')
+
+
+for description in classDescriptions:
+	print description.text
 
 # Close Firefox browser
-driver.quit()
-'''
-
-
-
-
-
-
-
-
-
-
-
-'''
-for i in classLinks:
-	print i.text
-'''
-
-#print len(classLinks)
-
-'''
-
-'''
-
-# Array to hold course abbreveation(e.g., CS 135)
-#print classLinks[3].text
-
-#courseNamesAbbrevations 
-
-'''
-
-for i in classLinks:
-	 courseNamesAbbrevations = i.text
-print len(courseNamesAb
-
-for i in courseNamesAbbrevations:
-	print i
-
-print len(classLinks)
-print classLinks[1]
-'''
-# courseNamesAbbrevations = list(classLinks)
