@@ -4,5 +4,5 @@ Command line tool (CLT) to scrape the UNLV course catalog - http://catalog.unlv.
 Why do this?
 To learn some more Python/web scraping
 
-This is a work in progress. :)
+This is a work in progress :)
 
